@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe PostsController, type: :controller do
+
   describe "GET /new " do
     it "responds with 200" do
       get :new
@@ -24,6 +25,9 @@ RSpec.describe PostsController, type: :controller do
     it "responds with 200" do
       get :index
       expect(response).to have_http_status(200)
+    end
+    it "shows the date and time" do
+
     end
   end
 end
