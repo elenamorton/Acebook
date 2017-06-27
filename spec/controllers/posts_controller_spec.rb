@@ -26,8 +26,5 @@ RSpec.describe PostsController, type: :controller do
       get :index
       expect(response).to have_http_status(200)
     end
-    it "shows the date and time" do
-
-    end
   end
 end

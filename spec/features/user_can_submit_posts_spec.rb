@@ -8,4 +8,12 @@ RSpec.feature "Timeline", type: :feature do
     click_button "Submit"
     expect(page).to have_content("Hello, world!")
   end
+  scenario "Can see the date and time on posts" do
+    visit "/posts"
+    click_link "Add New post"
+    fill_in "Message", with: "New Post"
+    date = DateTime.now
+    click_button "Submit"
+    expect(page).to have_content(date.strftime("%t"))
+  end
 end
