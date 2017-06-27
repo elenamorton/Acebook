@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(commentParams)
     if @comment.save
-      redirect_to post_comments_url
+      redirect_to comment_path(@comment)
     else
       render 'new'
     end

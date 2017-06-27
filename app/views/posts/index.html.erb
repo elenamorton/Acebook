@@ -5,10 +5,12 @@
 <% end %>
 
 
-<% @posts.each do |post| %>
+<% @posts.reverse.each do |post| %>
 <article style="border-style: groove">
   <p>
     <%= post.message %>
+    <br/>
+    <br/>
      Created on: <span><%= post.created_at.strftime("%D %T") %></span>
   </p>
 
