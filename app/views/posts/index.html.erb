@@ -1,21 +1,21 @@
 <%= link_to new_post_path do %>
 <br/>
-  <strong>Add New post</strong>
+  <strong id="title">Add New post</strong>
   <br/><br/>
 <% end %>
 
 
 <% @posts.reverse.each do |post| %>
 <article style="border-style: groove">
-  <p>
+  <p id="post_message">
     <%= post.message %>
     <br/>
-    <br/>
-     Created on: <span><%= post.created_at.strftime("%D %T") %></span>
+  </p>
+  <p id="time">Created on: <span ><%= post.created_at.strftime("%D %T") %></span>
   </p>
 
   <%= link_to post_path(post) do %>
-  <span>View</span>
+  <span id="view">View</span>
   <% end %>
   <br/>
 </article>
