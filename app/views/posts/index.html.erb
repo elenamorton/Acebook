@@ -8,7 +8,7 @@
 <div>
   <p>
     <%= post.message %>
-     Created on: <span><%= post.created_at.strftime("%F") %></span>
+     Created on: <span><%= post.created_at.strftime("%D %T") %></span>
   </p>
 
   <%= link_to post_path(post) do %>
