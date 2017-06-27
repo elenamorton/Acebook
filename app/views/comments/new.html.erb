@@ -1,6 +1,6 @@
 <%= form_for @comment do |form| %>
   <%= form.label :comment %>
-  <%= form.text_field :comment %>
+  <%= form.text_field :comment, placeholder: "Please enter a comment", autofocus: true%>
 
   <%= form.hidden_field :post_id %>
 

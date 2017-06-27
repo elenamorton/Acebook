@@ -1,9 +1,19 @@
-<% @posts.each do |post| %>
-  <%= link_to post_path(post) do %>
-    <p><%= post.message %></p>
-  <% end %>
+<%= link_to new_post_path do %>
+<br/>
+  <strong>Add New post</strong>
 <% end %>
 
-<%= link_to new_post_path do %>
-  New post
+
+<% @posts.each do |post| %>
+<div>
+  <p>
+    <%= post.message %>
+     Created on: <span><%= post.created_at.strftime("%F") %></span>
+  </p>
+
+  <%= link_to post_path(post) do %>
+  <span>View</span>
+  <% end %>
+  <br/>
+</div>
 <% end %>
