@@ -1,11 +1,12 @@
 <%= link_to new_post_path do %>
 <br/>
   <strong>Add New post</strong>
+  <br/><br/>
 <% end %>
 
 
 <% @posts.each do |post| %>
-<div>
+<article style="border-style: groove">
   <p>
     <%= post.message %>
      Created on: <span><%= post.created_at.strftime("%D %T") %></span>
@@ -15,5 +16,6 @@
   <span>View</span>
   <% end %>
   <br/>
-</div>
+</article>
+<br/>
 <% end %>
