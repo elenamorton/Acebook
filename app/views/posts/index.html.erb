@@ -9,6 +9,9 @@
 <article style="border-style: groove">
   <p id="post_message">
     <%= post.message %>
+    <% Comment.all.each do |c| %>
+    <%= c.comment %>
+    <% end %>
     <br/>
   </p>
   <p id="time">Created on: <span ><%= post.created_at.strftime("%D %T") %></span>
