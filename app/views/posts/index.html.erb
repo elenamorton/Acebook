@@ -10,7 +10,7 @@
   <p id="post_message">
     <%= post.message %><br/>
     <p>Comments:<p/>
-    <% post.comments.each do |c| %>
+    <% post.comments.reverse.each do |c| %>
     <%= c.comment %>
     <br/>
     <% end %>
