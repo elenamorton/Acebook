@@ -8,9 +8,11 @@
 <% @posts.reverse.each do |post| %>
 <article style="border-style: groove">
   <p id="post_message">
-    <%= post.message %>
-    <% Comment.all.each do |c| %>
+    <%= post.message %><br/>
+    <p>Comments:<p/>
+    <% post.comments.each do |c| %>
     <%= c.comment %>
+    <br/>
     <% end %>
     <br/>
   </p>
