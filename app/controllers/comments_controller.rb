@@ -8,9 +8,9 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.new(commentParams)
+    @comment = Comment.create(comment_params)
     if @comment.save
-      redirect_to comment_path(@comment)
+      redirect_to posts_url
     else
       render 'new'
     end

@@ -8,7 +8,12 @@
 <% @posts.reverse.each do |post| %>
 <article style="border-style: groove">
   <p id="post_message">
-    <%= post.message %>
+    <%= post.message %><br/>
+    <p>Comments:<p/>
+    <% post.comments.reverse.each do |c| %>
+    <%= c.comment %>
+    <br/>
+    <% end %>
     <br/>
   </p>
   <p id="time">Created on: <span ><%= post.created_at.strftime("%D %T") %></span>
