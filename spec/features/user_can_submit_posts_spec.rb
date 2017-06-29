@@ -52,4 +52,11 @@ RSpec.feature "Timeline", type: :feature do
     click_button "Submit"
     expect("New Comment").to appear_before("Old Comment")
   end
+  scenario "Posts can have more than one line" do
+    visit "/posts"
+    click_link "Add New post"
+    fill_in "Message", with: "Post\n Hello\n"
+    click_button "Submit"
+    expect(page).to have_content("Post\n Hello\n")
+  end
 end
