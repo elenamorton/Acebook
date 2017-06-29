@@ -30,6 +30,10 @@
     #time {
       font-size: 12px;
     }
+
+    #nav-bar {
+      background-color: lightgreen;
+    }
     </style>
 
 
@@ -42,6 +46,12 @@
   </head>
 
   <body>
+  <h1><strong>ACEBOOK by SEPS</strong></h1>
+    <div id='nav-bar'>
+      <%= link_to 'Home', root_path %>
+      <%= link_to 'Sign in', sign_in_path %>
+      <%= link_to 'Sign up', sign_up_path %>
+    </div>
     <% if signed_in? %>
       Signed in as: <%= current_user.email %>
       <%= button_to 'Sign out', sign_out_path, method: :delete %>
