@@ -8,7 +8,7 @@
 <% @posts.reverse.each do |post| %>
 <article style="border-style: groove">
   <p id="post_message">
-    <%= post.message %><br/>
+    <%= simple_format(post.message) %><br/>
     <p>Comments:<p/>
     <% post.comments.reverse.each do |c| %>
     <%= c.comment %>

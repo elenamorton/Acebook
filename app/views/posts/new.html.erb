@@ -1,6 +1,6 @@
 <%= form_for @post do |form| %>
   <%= form.label :message %>
-  <%= form.text_field :message, placeholder: "Please enter a post", autofocus: true %>
+  <%= form.text_area :message, :input_html => {:rows => 10}, placeholder: "Please enter a post", autofocus: true %>
 
   <%= form.submit "Submit" %>
 <% end %>
