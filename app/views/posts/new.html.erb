@@ -2,5 +2,6 @@
   <%= form.label :message %>
   <%= form.text_area :message, :input_html => {:rows => 10}, placeholder: "Please enter a post", autofocus: true %>
 
+  <%= form.hidden_field :user_id %>
   <%= form.submit "Submit" %>
 <% end %>
