@@ -1,3 +1,47 @@
+<% if !signed_in? # if user is not signed in%>
+<style>
+  #main-page-bg {
+    background: linear-gradient( /* somewhat transparent film on top of teh Bg to makeit look darker*/
+      rgba(0, 0, 0, 0.7),
+      rgba(0, 0, 0, 0.7)
+      ), url("/assets/landscape.jpg") no-repeat center center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+  }
+  h1 {
+    color: white;
+    font-weight: bold;
+  }
+  .container-index {
+    margin-right: 15%;
+    margin-left: 15%;
+  }
+  .footer-links {
+    text-align: center;
+    color: white;
+    margin-top: 40%;
+    font-size: 75%;
+  }
+</style>
+
+<div id='nav-bar'>
+  <%= link_to 'Home', root_path %>
+  <%= link_to 'Sign in', sign_in_path %>
+  <%= link_to 'Sign up', sign_up_path %>
+</div>
+
+<div class="container-index">
+  <h1>Welcome to the Acebook by SEPS</h1>
+
+  <div class="col-sm-12">
+    <p class="footer-links">About   Help   Blog   Contact Location</p>
+  </div>
+</div>
+
+<% else #if user is signed in%>
+
 <%= link_to new_post_path do %>
 <br/>
   <strong id="title">Add New post</strong>
@@ -7,17 +51,21 @@
 
 <% @posts.reverse.each do |post| %>
 <article style="border-style: groove">
-  <p id="post_message">
+  <div id="post_message">
     <%= simple_format(post.message) %><br/>
-    <p>Comments:<p/>
-    <% post.comments.reverse.each do |c| %>
-    <%= c.comment %>
+
+  <p id='comments-header'>Comments:</p>
+    <p id='comments'>
+      <% post.comments.reverse.each do |c| %>
+      <%= c.comment %>
     <br/>
     <% end %>
     <br/>
-  </p>
+  <p/>
+  </div>
   <p id="time">Created on: <span ><%= post.created_at.strftime("%D %T") %></span>
   </p>
+
 
   <%= link_to post_path(post) do %>
   <span id="view">View</span>
@@ -26,3 +74,6 @@
 </article>
 <br/>
 <% end %>
+<% end%>
+
+<%= yield %>
