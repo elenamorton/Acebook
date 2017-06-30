@@ -40,9 +40,17 @@
     #time {
       font-size: 12px;
     }
+
     #welcome-user {
       color: darkorange;
     }
+
+
+    #nav-bar {
+      background-color: lightgreen;
+    }
+    </style>
+
 
     </style>
 
@@ -54,10 +62,20 @@
 
   </head>
 
+
   <body id="main-page-bg">
 
     <br/><br/>
     <section id='welcome-user'>
+
+  <body>
+  <h1><strong>ACEBOOK by SEPS</strong></h1>
+    <div id='nav-bar'>
+      <%= link_to 'Home', root_path %>
+      <%= link_to 'Sign in', sign_in_path %>
+      <%= link_to 'Sign up', sign_up_path %>
+    </div>
+
     <% if signed_in? %>
       Welcome: <%= current_user.email %>
       <br/><br/>
