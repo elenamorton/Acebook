@@ -16,6 +16,7 @@ RSpec.feature "Timeline", type: :feature do
     click_button "Submit"
     expect(page).to have_content("Hello, world!")
   end
+
   scenario "Can see the date and time on posts" do
     visit "/posts"
     click_link "Add New post"
@@ -24,6 +25,31 @@ RSpec.feature "Timeline", type: :feature do
     click_button "Submit"
     expect(page).to have_content(date.strftime("%t"))
   end
+
+  scenario "Can see users email on the previous users post" do
+    visit "/posts"
+    click_link "Add New post"
+    fill_in "Message", with: "Posts one"
+    click_button "Submit"
+    click_button "Sign out"
+    click_link "Sign up"
+    fill_in "Email", with: "sammy@yahoo.com"
+    fill_in "Password", with: "bobby"
+    click_button "Sign up"
+    click_link "Add New post"
+    fill_in "Message", with: "Posts two"
+    click_button "Submit"
+    expect(page).to have_content("sam@msn.com")
+  end
+
+  scenario "Can see the user email on posts" do
+    visit "/posts"
+    click_link "Add New post"
+    fill_in "Message", with: "New Post"
+    click_button "Submit"
+    expect(page).to have_content("sam@msn.com")
+  end
+
   scenario "See the newest posts first" do
     visit "/posts"
     click_link "Add New post"
