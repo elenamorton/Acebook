@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-
     <style>
 
     article {
       background: lightblue;
-      width: 30%;
+      width: 50%;
     }
 
     body {
@@ -16,44 +15,80 @@
 
     #title {
       font-size: 30px;
-
     }
 
     #post_message {
       font-size: 17px;
+      color: darkred;
+    }
+    #comments {
+      color: darkblue;
+    }
+
+    #comments {
+      color: darkblue;
+      font-size: 14px;
     }
 
     #view {
+    }
 
+    #nav-bar {
+      background-color: lightgreen;
     }
 
     #time {
       font-size: 12px;
     }
+
+    #welcome-user {
+      color: darkorange;
+    }
+
+
+    #nav-bar {
+      background-color: lightgreen;
+    }
     </style>
 
 
+    </style>
 
     <title>Acebook</title>
-    <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
+
   </head>
 
+
+  <body id="main-page-bg">
+
+    <br/><br/>
+    <section id='welcome-user'>
+
   <body>
-    <% if signed_in? %>
-      Signed in as: <%= current_user.email %>
-      <%= button_to 'Sign out', sign_out_path, method: :delete %>
-    <% else %>
+  <h1><strong>ACEBOOK by SEPS</strong></h1>
+    <div id='nav-bar'>
+      <%= link_to 'Home', root_path %>
       <%= link_to 'Sign in', sign_in_path %>
+      <%= link_to 'Sign up', sign_up_path %>
+    </div>
+
+    <% if signed_in? %>
+      Welcome: <%= current_user.email %>
+      <br/><br/>
+      <%= button_to 'Sign out', sign_out_path, method: :delete %>
     <% end %>
+  </section>
 
     <div id="flash">
       <% flash.each do |key, value| %>
         <div class="flash <%= key %>"><%= value %></div>
       <% end %>
     </div>
+
     <%= yield %>
   </body>
 </html>
