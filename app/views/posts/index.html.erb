@@ -1,10 +1,10 @@
 <% if !signed_in? # if user is not signed in%>
 <style>
-  body {
+  #main-page-bg {
     background: linear-gradient( /* somewhat transparent film on top of teh Bg to makeit look darker*/
       rgba(0, 0, 0, 0.7),
       rgba(0, 0, 0, 0.7)
-      ), url("/assets/landscape1_o.jpg") no-repeat center center fixed;
+      ), url("/assets/landscape.jpg") no-repeat center center fixed;
       -webkit-background-size: cover;
       -moz-background-size: cover;
       -o-background-size: cover;
@@ -54,10 +54,10 @@
   <div id="post_message">
     <%= simple_format(post.message) %><br/>
 
-  <p id='comments'>Comments:
-    <br/>
-    <% post.comments.reverse.each do |c| %>
-    <%= c.comment %>
+  <p id='comments-header'>Comments:</p>
+    <p id='comments'>
+      <% post.comments.reverse.each do |c| %>
+      <%= c.comment %>
     <br/>
     <% end %>
     <br/>

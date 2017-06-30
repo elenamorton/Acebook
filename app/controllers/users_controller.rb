@@ -11,6 +11,11 @@ class UsersController < Clearance::UsersController
     end
   end
 
+  def destroy
+    p 'my destroy'
+    sign_out
+    redirect_to root_url
+  end
 
   private
 
@@ -22,6 +27,17 @@ class UsersController < Clearance::UsersController
       user.email = email
       user.password = password
     end
+
+    # Overwriting the sign_out redirect path method
+    def after_sign_out_path_for(resource)
+      p 'after sign out'
+      redirect_to root_url
+    end
+    def url_after_destroy(resource)
+      p 'after sign destroy'
+      redirect_to root_url
+    end
+
   end
 
 

@@ -25,6 +25,11 @@
       color: darkblue;
     }
 
+    #comments {
+      color: darkblue;
+      font-size: 14px;
+    }
+
     #view {
     }
 
@@ -39,10 +44,6 @@
       color: darkorange;
     }
 
-    p {
-      background-color: black,
-    }
-
     </style>
 
     <title>Acebook</title>
@@ -53,10 +54,10 @@
 
   </head>
 
-  <body>
+  <body id="main-page-bg">
 
     <br/><br/>
-    <section id='welcome-user'> 
+    <section id='welcome-user'>
     <% if signed_in? %>
       Welcome: <%= current_user.email %>
       <br/><br/>
